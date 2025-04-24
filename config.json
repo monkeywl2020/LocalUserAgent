@@ -1,0 +1,25 @@
+{
+    "wluseragent_filelog_enable":0,
+    "schedulersrv_filelog_enable":0,
+    "local_digitalman_id": "wl_useragent_test",
+    "rabbitmq_server_host":"172.21.30.231",
+    "rabbitmq_que_name":"company_wl_msgque",
+    "rabbitmq_user":"wllocaluserconsume",
+    "rabbitmq_password":"LocalAgent20250425!",
+    "local_serv_port":10009,
+    "agent_addwx_srv_url":"http://172.21.30.231:7788/v1/wx/add",
+    "agent_wxchat_srv_url":"http://172.21.30.231:7788/v1/wx/chat",
+    "psuse_tool_srv_url":"http://localhost:10010/v1/serve",
+    "apscheduler_srv_url":"http://localhost:10005/schedule",
+    "apscheduler_base_url":"http://localhost:10005",
+    "apscheduler_day":0,
+    "apscheduler_hour":9,
+    "apscheduler_minute":2,
+    "apscheduler_retry_count":3,
+    "server_llm":{
+        "model_type": "postapi",
+        "base_url": "http://172.21.30.231:7788/v1/chat/completions",  
+        "api_key": "EMPTY"
+    },
+    "scheduler_srv_port": 10005
+}

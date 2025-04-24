@@ -1,0 +1,72 @@
+测试命令：
+
+----------------1：聊天测试请求命令：
+
+curl -X POST http://172.21.30.231:10009/v1/serve \
+-H 'Content-Type: application/json' \
+-d '{
+    "type": "chat",
+    "userid": "131313131",
+    "data":{
+        "sessionid": "session_id1",
+        "content": "你是openai吗",
+        "ext":{"wx_id":"wl123"}
+    }
+}'
+
+：windows windows 命令格式 ，需要将 你是openai吗 转成 unicode格式。
+curl -X POST http://localhost:10009/v1/serve ^
+-H "Content-Type: application/json" ^
+-d "{\"type\": \"chat\", \"userid\": \"131313131\", \"data\":{\"sessionid\": \"session_id1\", \"content\": \"\u4f60\u90fd\u4f1a\u4e9b\u4ec0\u4e48\", \"ext\":{\"wx_id\":\"wl003\"}}}"
+
+
+console.log("\u4f60\u597d");          // 输出：你好
+console.log("\u4f60\u90fd\u4f1a\u4e9b\u4ec0\u4e48");  // 输出：你都会些什么
+
+
+----------------2：添加好友成功命令：
+curl -X POST http://172.21.30.231:10009/v1/serve \
+-H 'Content-Type: application/json' \
+-d '{
+    "type": "add_wx_result",
+    "userid": "131313131",
+    "data":{
+        "sessionid": "session_id1",
+        "content": "",
+        "ext":{"wx_id":"wl123"}
+    }
+}'
+
+：windows 命令格式
+curl -X POST http://localhost:10009/v1/serve ^
+-H "Content-Type: application/json" ^
+-d "{\"type\": \"add_wx_result\", \"userid\": \"131313131\", \"data\":{\"sessionid\": \"session_id1\", \"content\": \"\", \"ext\":{\"wx_id\":\"wl003\"}}}"
+
+----------------3：从RabbitMQ 那加微信消息
+python rabbitMQ_producer_test.py  
+运行后输入微信用户id：xxxxxxx
+
+
+----------------4：查询调度服务中所有的调度任务。
+curl -X GET http://localhost:10005/schedules \
+-H 'Content-Type: application/json' \
+-d '{}'
+
+：windows 命令格式
+curl -X GET http://localhost:10005/schedules ^
+-H "Content-Type: application/json" ^
+-d "{}"
+
+----------------5：测试服务命令
+修改了代码，将其整合到一起运行了，manage.py 实际运行的是launcher.py 利用它运行实际2个程序的时候保存的pid信息来结束程序的
+# - 启动： python3 manage.py start
+# - 停止： python3 manage.py stop
+
+
+----------------6：对python程序进行打包
+pip install .
+----------------7：验证打包后的程序
+
+
+
+
